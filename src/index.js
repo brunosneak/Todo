@@ -1,3 +1,1 @@
-let toto = "123";
-
-console.log(toto);
+import "./style.css";

@@ -15,6 +15,10 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
@@ -30,6 +34,6 @@ module.exports = {
     inline: true,
     open: true,
     hot: true,
-    port: 4000
+    port: 3800
   }
 };
