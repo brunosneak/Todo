@@ -97,7 +97,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n    box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    min-height: 100vh;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.container {\r\n    width: 500px;\r\n    border: 1px solid #eee;\r\n    border-radius: 3px;\r\n    padding: 20px;\r\n}", ""]);
+exports.push([module.i, "* {\r\n    box-sizing: border-box;\r\n}\r\n\r\np {\r\n    margin: 0;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    min-height: 100vh;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.container {\r\n    width: 500px;\r\n    border: 1px solid #eee;\r\n    border-radius: 3px;\r\n    padding: 20px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\nform {\r\n    display: flex;\r\n    margin-bottom: 20px;\r\n}\r\n\r\nbutton {\r\n    padding: 5px 15px;\r\n    border: 0;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    margin: 0 3px;\r\n}\r\n\r\ninput {\r\n    padding: 8px 15px;\r\n    outline: 0;\r\n    border: 1px solid #ddd;\r\n    border-radius: 3px;\r\n}\r\n\r\nform input {\r\n    margin-right: 15px;\r\n    flex: 1;\r\n}\r\n\r\nul {\r\n    padding: 0;\r\n    list-style: none;\r\n}\r\n\r\nli {\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 10px 0;\r\n}\r\n\r\nli p {\r\n    flex: 1;\r\n}\r\n\r\nli .todo {\r\n    flex: 0 0 20px;\r\n    height: 20px;\r\n    border-radius: 30px;\r\n    margin-right: 15px;\r\n    border: 2px solid #333;\r\n}\r\n\r\nli .todo.done {\r\n    background: #333;\r\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -500,7 +500,43 @@ module.exports = function (list, options) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+var ul = document.querySelector("ul");
+var todos = [{
+  text: "je suis une todo",
+  done: false
+}, {
+  text: "faire du JavaScript",
+  done: true
+}];
+
+var displayTodo = function displayTodo() {
+  var todosNode = todos.map(function (todo, index) {
+    return createTodoElement(todo, index);
+  });
+  ul.innerHTML = "";
+  ul.append.apply(ul, _toConsumableArray(todosNode));
+};
+
+var createTodoElement = function createTodoElement(todo, index) {
+  var li = document.createElement('li');
+  li.innerHTML = "\n    <span class=\"todo ".concat(todo.done ? "done" : "", "\"></span>\n    <p>").concat(todo.text, "</p>\n    <button>Supprimer</button>\n    ");
+  return li;
+};
+
+displayTodo();
 
 /***/ }),
 

@@ -1,6 +1,16 @@
 import "./style.css";
 
 const ul = document.querySelector("ul");
+const form = document.querySelector("form");
+const input = document.querySelector("form > input");
+
+form.addEventListener("submit", (event) =>{
+    event.preventDefault();
+    const value = input.value;
+    input.value = "";
+    addTodo(value);
+    displayTodo();
+});
 
 const todos = [
     {
@@ -29,6 +39,13 @@ const createTodoElement = (todo, index) => {
     <button>Supprimer</button>
     `;
     return li;
+}
+
+const addTodo = (text) => {
+    todos.push({
+        text,
+        done: false
+    })
 }
 
 displayTodo();
